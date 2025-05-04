@@ -13,10 +13,12 @@ spec:
     metadata:
       labels:
         app: goserver
+      annotations:
+          kubernetes.io/change-cause: "Updated to version 2.0 at $(date)"
     spec:
       containers:
         - name: goserver
-          image: gezielcarvalho/hello-go:latest
+          image: gezielcarvalho/hello-go:v5
           resources:
             requests:
               memory: "64Mi"
