@@ -53,3 +53,10 @@ To access the web application running in the Pod, you can use port forwarding. R
 kubectl port-forward my-pod 8080:80
 ```
 This command will forward port 80 of the Pod to port 8080 on your local machine. You can then access the web application by opening your browser and going to `http://localhost:8080/`.
+
+## Delete the pod
+To delete a pod, you can use the following command
+
+```bash
+kubectl delete pod my-pod
+```
