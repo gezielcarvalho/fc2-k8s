@@ -8,17 +8,17 @@ spec:
   selector:
     matchLabels:
       app: goserver
-  replicas: 5
+  replicas: 6
   template:
     metadata:
       labels:
         app: goserver
       annotations:
-          kubernetes.io/change-cause: "Updated to version 2.0 at $(date)"
+        kubernetes.io/change-cause: "Upgrade to v11"
     spec:
       containers:
         - name: goserver
-          image: gezielcarvalho/hello-go:v7
+          image: gezielcarvalho/hello-go:v11
           resources:
             requests:
               memory: "64Mi"

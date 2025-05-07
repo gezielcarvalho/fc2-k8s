@@ -1,16 +1,21 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
+	"os"
 )
 
 func main() {
+	hostname, err := os.Hostname()
+	if err != nil {
+		hostname = "unknown"
+	}
+
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		// get a unique pod identifier without using an environment variable
-		podID := r.Header.Get("X-Pod-ID")
-		w.Write([]byte("<h1>Hello, E4Devs! v7 - Deployment</h1><p>Pod ID: " + podID + "</p>"))
+		message := fmt.Sprintf("<h1>Hello, E4Devs! v10 - Deployment</h1><p>Served by: %s</p>", hostname)
+		w.Write([]byte(message))
 	})
 
 	http.ListenAndServe(":8080", nil)
 }
-// This is a simple HTTP server that responds with "Hello, E4Devs! v7 - Deployment" when accessed.
