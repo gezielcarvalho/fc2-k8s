@@ -13,9 +13,9 @@ func main() {
 	}
 
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		message := fmt.Sprintf("<h1>Hello, E4Devs! v11 - Deployment</h1><p>Served by: %s</p>", hostname)
+		message := fmt.Sprintf("<h1>Hello, E4Devs! v12 - Deployment</h1><p>Served by: %s</p>", hostname)
 		w.Write([]byte(message))
 	})
 
-	http.ListenAndServe(":8080", nil)
+	http.ListenAndServe(":8000", nil)
 }
